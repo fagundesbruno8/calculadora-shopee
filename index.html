@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Taxas da Shopee 2026 (CPF e MEI) — Grátis | Precifica</title>
+<meta name="description" content="Calcule grátis quanto sobra em cada venda na Shopee com as taxas de 2026: comissão por faixa, taxa fixa de R$ 4,50, adicional do vendedor CPF e DAS do MEI. Descubra o preço mínimo e o preço certo.">
+<meta property="og:title" content="Calculadora de Taxas da Shopee 2026 — CPF e MEI">
+<meta property="og:description" content="Descubra em 30 segundos quanto sobra em cada venda na Shopee com as regras de 2026.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f7f5; --card:#ffffff; --ink:#16181d; --muted:#5f6672; --line:#e4e4e0;
+  --accent:#e8552d; --accent-ink:#ffffff; --accent-soft:#fdeee8;
+  --good:#167a45; --good-soft:#e3f4ea; --warn:#9a5b00; --warn-soft:#fdf1dc; --bad:#b42318; --bad-soft:#fde5e3;
+  --navy:#1f3a5f; --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111317; --card:#1a1d23; --ink:#eceef2; --muted:#a2a9b5; --line:#2c3039;
+    --accent:#ff7a52; --accent-ink:#1a0d08; --accent-soft:#3a2118;
+    --good:#5fd08f; --good-soft:#163024; --warn:#f2b555; --warn-soft:#332611; --bad:#ff8a80; --bad-soft:#3a1a18;
+    --navy:#9fbbe0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111317; --card:#1a1d23; --ink:#eceef2; --muted:#a2a9b5; --line:#2c3039;
+  --accent:#ff7a52; --accent-ink:#1a0d08; --accent-soft:#3a2118;
+  --good:#5fd08f; --good-soft:#163024; --warn:#f2b555; --warn-soft:#332611; --bad:#ff8a80; --bad-soft:#3a1a18;
+  --navy:#9fbbe0;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+header{padding:8px 0 18px}
+.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.02em;padding:4px 10px;border-radius:999px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:12px 0 8px;letter-spacing:-.02em}
+.lead{color:var(--muted);margin:0;max-width:640px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
+@media(min-width:860px){.grid{grid-template-columns:1fr 1fr;align-items:start}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.card h2{font-size:17px;margin:0 0 14px}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+label:first-of-type{margin-top:0}
+.hint{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.money{position:relative}
+.money span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600;pointer-events:none}
+input[type=text],input[type=number]{width:100%;font:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px}
+.money input{padding-left:42px}
+input:focus{outline:none;border-color:var(--accent)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:4px}
+.seg button{font:inherit;font-size:14px;font-weight:600;border:0;border-radius:9px;padding:10px 4px;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+.sub{margin-top:12px;padding:12px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.sub label{margin-top:0}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:14px;cursor:pointer}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent)}
+details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--navy)}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.row3 label{font-size:12.5px}
+.row3 input{font-size:16px}
+.hero{border-radius:12px;padding:18px;text-align:center;background:var(--good-soft);color:var(--good)}
+.hero.warn{background:var(--warn-soft);color:var(--warn)}
+.hero.bad{background:var(--bad-soft);color:var(--bad)}
+.hero small{display:block;font-weight:600;font-size:13px;opacity:.9}
+.hero strong{display:block;font-size:clamp(34px,8vw,46px);line-height:1.1;letter-spacing:-.02em;margin:4px 0}
+.hero .m{font-weight:700}
+.lines{list-style:none;margin:16px 0 0;padding:0}
+.lines li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.lines li span:last-child{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.lines li.tot{font-weight:800;border-bottom:0;font-size:16px}
+.lines .neg{color:var(--bad)}
+.pills{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.pill{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.pill small{display:block;color:var(--muted);font-size:12px;font-weight:600}
+.pill b{font-size:19px;font-variant-numeric:tabular-nums}
+.tip{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--warn-soft);color:var(--warn);font-size:14px;font-weight:600}
+.tip[hidden]{display:none}
+.target{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14px;color:var(--muted)}
+.target input{flex:1;accent-color:var(--accent)}
+.cta{margin-top:16px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px}
+:root[data-theme="dark"] .cta{background:#22324a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{background:#22324a}}
+.cta h3{margin:0 0 6px;font-size:18px}
+.cta p{margin:0 0 12px;opacity:.9;font-size:14.5px}
+.cta ul{margin:0 0 14px;padding-left:18px;font-size:14px;opacity:.95}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:10px}
+.faq{margin-top:28px}
+.faq h2{font-size:22px;margin:0 0 12px}
+.faq h3{font-size:16px;margin:18px 0 6px}
+.faq p{margin:0;color:var(--muted);font-size:15px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+footer{margin-top:28px;color:var(--muted);font-size:12.5px}
+.sticky{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08);font-weight:700;z-index:10;transition:transform .2s}
+.sticky.off{transform:translateY(110%)}
+.sticky b{font-size:20px}
+.sticky .s-good{color:var(--good)} .sticky .s-warn{color:var(--warn)} .sticky .s-bad{color:var(--bad)}
+.sticky a{font-size:14px;color:var(--accent);text-decoration:none;white-space:nowrap}
+@media(min-width:860px){.sticky{display:none}}
+@media(max-width:859px){.wrap{padding-bottom:90px}}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">Atualizada em 24/11/2026 · taxa fixa de R$ 4,50</span>
+    <h1>Quanto sobra da sua venda na Shopee?</h1>
+    <p class="lead">Calculadora grátis com as regras de 2026: comissão por faixa de preço, taxa fixa, adicional do vendedor CPF e DAS do MEI. Sem cadastro.</p>
+  </header>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="t-dados">
+      <h2 id="t-dados">1. Seu produto</h2>
+      <label for="preco">Preço de venda na Shopee</label>
+      <div class="money"><span>R$</span><input id="preco" type="text" inputmode="decimal" value="39,90" autocomplete="off"></div>
+      <label for="custo">Quanto você paga no produto <span class="hint">Custo por unidade, com frete do fornecedor</span></label>
+      <div class="money"><span>R$</span><input id="custo" type="text" inputmode="decimal" value="15,00" autocomplete="off"></div>
+      <label for="emb">Embalagem e outros <span class="hint">Caixa, etiqueta, fita, brinde… (por unidade)</span></label>
+      <div class="money"><span>R$</span><input id="emb" type="text" inputmode="decimal" value="1,50" autocomplete="off"></div>
+
+      <label>Como você vende?</label>
+      <div class="seg" role="group" aria-label="Tipo de vendedor">
+        <button type="button" data-reg="cpf" aria-pressed="true">CPF</button>
+        <button type="button" data-reg="mei" aria-pressed="false">MEI</button>
+        <button type="button" data-reg="sn" aria-pressed="false">Simples</button>
+      </div>
+      <div class="sub" id="sub-cpf">
+        <label class="check"><input id="cpf450" type="checkbox"><span>Passei de 450 pedidos nos últimos 90 dias na Shopee<span class="hint">Acima disso, o CPF paga R$ 3,00 a mais por item</span></span></label>
+      </div>
+      <div class="sub" id="sub-mei" hidden>
+        <label for="vendas">Quantas vendas você faz por mês? <span class="hint">O DAS do MEI (R$ 82,05/mês) é dividido entre elas</span></label>
+        <input id="vendas" type="number" inputmode="numeric" min="1" value="50">
+      </div>
+      <div class="sub" id="sub-sn" hidden>
+        <label for="aliq">Sua alíquota do Simples (%) <span class="hint">Quem fatura até R$ 180 mil/ano no comércio começa em 4%</span></label>
+        <input id="aliq" type="text" inputmode="decimal" value="4">
+      </div>
+
+      <details>
+        <summary>Custos extras (opcional)</summary>
+        <div class="row3" style="margin-top:10px">
+          <div><label for="ads">Anúncios (%)</label><input id="ads" type="text" inputmode="decimal" value="0"></div>
+          <div><label for="dev">Devoluções (%)</label><input id="dev" type="text" inputmode="decimal" value="0"></div>
+          <div><label for="camp">Campanha (%)</label><input id="camp" type="text" inputmode="decimal" value="0"></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" aria-labelledby="t-res" aria-live="polite">
+      <h2 id="t-res">2. Resultado</h2>
+      <div class="hero" id="hero">
+        <small id="hero-lbl">Sobra por venda</small>
+        <strong id="lucro">R$ 0,00</strong>
+        <span class="m" id="margem">0% do preço</span>
+      </div>
+      <ul class="lines" id="lines"></ul>
+      <div class="pills">
+        <div class="pill"><small>Preço mínimo (lucro zero)</small><b id="pmin">—</b></div>
+        <div class="pill"><small id="palvo-lbl">Preço para sobrar 15%</small><b id="palvo">—</b></div>
+      </div>
+      <div class="target"><span>Meta de margem</span><input id="meta" type="range" min="0" max="40" step="1" value="15"><b id="meta-v">15%</b></div>
+      <div class="tip" id="tip" hidden></div>
+    </section>
+  </div>
+
+  <aside class="cta">
+    <h3>Tem mais de um produto? Faça isso com todos de uma vez.</h3>
+    <p>A planilha <b>Precifica</b> faz essa conta para o seu catálogo inteiro e mostra o que está dando prejuízo.</p>
+    <ul>
+      <li>Cadastro de produtos com preço mínimo e preço sugerido</li>
+      <li>Shopee e Mercado Livre lado a lado</li>
+      <li>CPF, MEI e Simples Nacional</li>
+      <li>Copiloto de IA: tire dúvidas no ChatGPT ou no Claude grátis</li>
+      <li>Atualizada quando a Shopee mudar as regras</li>
+    </ul>
+    <span class="btn" id="cta-link" style="opacity:.85;cursor:default">Em breve</span>
+  </aside>
+
+  <section class="faq">
+    <h2>Perguntas frequentes</h2>
+    <h3>Quanto a Shopee cobra por venda em 2026?</h3>
+    <p>Desde 01/03/2026 a comissão depende da faixa de preço do item, e a taxa fixa da faixa até R$ 79,99 subiu para R$ 4,50 em 01/10/2026:</p>
+    <table>
+      <thead><tr><th>Preço do item</th><th>Comissão</th><th>Taxa fixa</th></tr></thead>
+      <tbody>
+        <tr><td>Abaixo de R$ 8</td><td>50%</td><td>—</td></tr>
+        <tr><td>R$ 8 a R$ 79,99</td><td>20%</td><td>R$ 4,50</td></tr>
+        <tr><td>R$ 80 a R$ 99,99</td><td>14%</td><td>R$ 16</td></tr>
+        <tr><td>R$ 100 a R$ 199,99</td><td>14%</td><td>R$ 20</td></tr>
+        <tr><td>A partir de R$ 200</td><td>14%</td><td>R$ 26</td></tr>
+      </tbody>
+    </table>
+    <h3>Vendedor CPF paga mais na Shopee?</h3>
+    <p>Até 450 pedidos em 90 dias, o CPF paga as mesmas taxas do CNPJ. Acima disso, a Shopee cobra R$ 3,00 a mais por item vendido.</p>
+    <h3>Como o MEI entra na conta?</h3>
+    <p>O MEI não paga imposto em % de cada venda: paga o DAS, um valor fixo por mês (R$ 82,05 em 2026 para comércio). A calculadora divide o DAS pelas suas vendas do mês para mostrar quanto pesa em cada uma.</p>
+    <h3>Por que vender um pouco mais caro pode dar menos lucro?</h3>
+    <p>Porque ao passar de R$ 79,99 para R$ 80 o item muda de faixa e a taxa fixa sobe de R$ 4,50 para R$ 16. A calculadora avisa quando isso acontece com o seu preço.</p>
+  </section>
+
+  <footer>
+    <p>Fontes consultadas em 23–24/11/2026: hunterhub.com.br, viniensina.com.br, precisaofinanceira.com.br, lider10.com.br (taxas Shopee) e Agência Brasil / Fenacon (DAS MEI 2026). Confirme sempre no painel do vendedor: taxas mudam e podem variar por programa e campanha.</p>
+    <p>Ferramenta independente, sem vínculo com a Shopee. Não é assessoria contábil. Os números são estimativas.</p>
+  </footer>
+</div>
+
+<div class="sticky" id="sticky"><span style="white-space:nowrap">Sobra: <b id="st-v">R$ 0,00</b></span><a href="#t-res">Ver conta ↓</a></div>
+<script>
+// CALC-START
+const TIERS = [
+  {lo: 0,   com: 0.50, fix: 0},
+  {lo: 8,   com: 0.20, fix: 4.5},
+  {lo: 80,  com: 0.14, fix: 16},
+  {lo: 100, com: 0.14, fix: 20},
+  {lo: 200, com: 0.14, fix: 26},
+];
+const DAS_MEI = 82.05, CPF_EXTRA = 3;
+
+function tierIdx(p){ let i = 0; TIERS.forEach((t, k) => { if (p >= t.lo) i = k; }); return i; }
+
+// s = {custo, emb, reg, cpf450, vendas, aliq, ads, dev, camp}
+function fixedPerSale(s){
+  const das = s.reg === 'mei' ? DAS_MEI / Math.max(1, s.vendas || 1) : 0;
+  const extra = (s.reg === 'cpf' && s.cpf450) ? CPF_EXTRA : 0;
+  return {das, extra};
+}
+function pctTax(s){ return s.reg === 'sn' ? (s.aliq || 0) : 0; }
+
+function breakdown(p, s){
+  const t = TIERS[tierIdx(p)], {das, extra} = fixedPerSale(s), imp = pctTax(s);
+  const it = {
+    comissao: p * t.com, fixa: t.fix, extra, imposto: p * imp,
+    ads: p * s.ads, dev: p * s.dev, camp: p * s.camp, custo: s.custo, emb: s.emb, das,
+  };
+  const lucro = p - Object.values(it).reduce((a, b) => a + b, 0);
+  return {tier: t, it, lucro, margem: p > 0 ? lucro / p : 0};
+}
+
+function priceFor(m, s){
+  const {das, extra} = fixedPerSale(s);
+  const varPct = pctTax(s) + s.ads + s.dev + s.camp;
+  let best = null;
+  TIERS.forEach((t, i) => {
+    const den = 1 - t.com - varPct - m;
+    if (den <= 0) return;
+    const hi = i < TIERS.length - 1 ? TIERS[i + 1].lo : Infinity;
+    const cand = Math.max((s.custo + s.emb + das + extra + t.fix) / den, t.lo);
+    if (cand < hi && (best === null || cand < best)) best = cand;
+  });
+  return best;
+}
+
+// Se baixar o preço para logo abaixo da faixa atual der mais lucro, devolve a dica
+function stepTip(p, s){
+  const i = tierIdx(p);
+  if (i < 2) return null;
+  const below = Math.round((TIERS[i].lo - 0.01) * 100) / 100;
+  const now = breakdown(p, s).lucro, alt = breakdown(below, s).lucro;
+  return alt > now ? {below, ganho: alt - now} : null;
+}
+// CALC-END
+
+const $ = id => document.getElementById(id);
+const brl = v => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+const num = el => { const v = parseFloat(String(el.value).replace(/\./g, '').replace(',', '.')); return isFinite(v) ? v : 0; };
+const pct = el => num(el) / 100;
+let reg = 'cpf';
+
+function state(){
+  return {custo: num($('custo')), emb: num($('emb')), reg, cpf450: $('cpf450').checked,
+          vendas: num($('vendas')), aliq: pct($('aliq')), ads: pct($('ads')), dev: pct($('dev')), camp: pct($('camp'))};
+}
+
+function render(){
+  const p = num($('preco')), s = state(), meta = Number($('meta').value) / 100;
+  $('meta-v').textContent = Math.round(meta * 100) + '%';
+  $('palvo-lbl').textContent = 'Preço para sobrar ' + Math.round(meta * 100) + '%';
+  const b = breakdown(p, s);
+  const hero = $('hero');
+  hero.className = 'hero' + (b.lucro < 0 ? ' bad' : (b.margem < meta ? ' warn' : ''));
+  $('hero-lbl').textContent = b.lucro < 0 ? 'Você PERDE em cada venda' : 'Sobra por venda';
+  $('lucro').textContent = brl(b.lucro);
+  $('margem').textContent = (b.margem * 100).toLocaleString('pt-BR', {maximumFractionDigits: 1}) + '% do preço';
+
+  const t = b.tier, L = [];
+  L.push(['Preço de venda', p, false]);
+  L.push([`Comissão Shopee (${Math.round(t.com * 100)}%)`, -b.it.comissao, true]);
+  if (t.fix) L.push(['Taxa fixa por item', -b.it.fixa, true]);
+  if (b.it.extra) L.push(['Adicional vendedor CPF', -b.it.extra, true]);
+  if (b.it.imposto) L.push(['Imposto do Simples', -b.it.imposto, true]);
+  if (b.it.ads) L.push(['Anúncios', -b.it.ads, true]);
+  if (b.it.dev) L.push(['Devoluções', -b.it.dev, true]);
+  if (b.it.camp) L.push(['Campanha', -b.it.camp, true]);
+  L.push(['Custo do produto', -b.it.custo, true]);
+  if (b.it.emb) L.push(['Embalagem e outros', -b.it.emb, true]);
+  if (b.it.das) L.push(['DAS do MEI (parte desta venda)', -b.it.das, true]);
+  $('lines').innerHTML = L.map(([k, v, neg]) =>
+    `<li><span>${k}</span><span class="${neg && v < 0 ? 'neg' : ''}">${brl(v)}</span></li>`).join('') +
+    `<li class="tot"><span>Sobra para você</span><span>${brl(b.lucro)}</span></li>`;
+
+  const pmin = priceFor(0, s), palvo = priceFor(meta, s);
+  $('pmin').textContent = pmin ? brl(pmin) : '—';
+  $('palvo').textContent = palvo ? brl(palvo) : '—';
+
+  const sv = $('st-v');
+  sv.textContent = brl(b.lucro) + ' · ' + (b.margem * 100).toLocaleString('pt-BR', {maximumFractionDigits: 0}) + '%';
+  sv.className = b.lucro < 0 ? 's-bad' : (b.margem < meta ? 's-warn' : 's-good');
+  const tip = stepTip(p, s);
+  if (tip){
+    $('tip').hidden = false;
+    $('tip').textContent = `⚠️ Atenção ao degrau de faixa: vendendo a ${brl(tip.below)} você ganharia ${brl(tip.ganho)} a MAIS por venda, porque muda a faixa de taxa da Shopee.`;
+  } else $('tip').hidden = true;
+}
+
+document.querySelectorAll('.seg button').forEach(btn => btn.addEventListener('click', () => {
+  reg = btn.dataset.reg;
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  ['cpf', 'mei', 'sn'].forEach(r => { $('sub-' + r).hidden = r !== reg; });
+  render();
+}));
+document.querySelectorAll('input').forEach(el => el.addEventListener('input', render));
+render();
+// esconde a barra fixa quando o card de resultado já está na tela
+if ('IntersectionObserver' in window){
+  new IntersectionObserver(es => es.forEach(e => $('sticky').classList.toggle('off', e.isIntersecting)), {threshold: .25})
+    .observe(document.getElementById('hero'));
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Quanto a Shopee cobra por venda em 2026?","acceptedAnswer":{"@type":"Answer","text":"Desde 01/03/2026 a comissão depende da faixa de preço: abaixo de R$ 8, 50%; de R$ 8 a R$ 79,99, 20% + R$ 4,50 (desde 01/10/2026); de R$ 80 a R$ 99,99, 14% + R$ 16; de R$ 100 a R$ 199,99, 14% + R$ 20; a partir de R$ 200, 14% + R$ 26."}},
+{"@type":"Question","name":"Vendedor CPF paga mais na Shopee?","acceptedAnswer":{"@type":"Answer","text":"Até 450 pedidos em 90 dias o CPF paga as mesmas taxas do CNPJ. Acima disso, há um adicional de R$ 3,00 por item vendido."}},
+{"@type":"Question","name":"Como o MEI entra na conta?","acceptedAnswer":{"@type":"Answer","text":"O MEI paga o DAS, um valor fixo mensal (R$ 82,05 em 2026 para comércio). Dividindo o DAS pelas vendas do mês, você descobre quanto ele pesa em cada venda."}}
+]}
+</script>
+</body>
+</html>
