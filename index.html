@@ -204,6 +204,7 @@ document.querySelectorAll('.seg button').forEach(btn => btn.addEventListener('cl
 }));
 document.querySelectorAll('input').forEach(el => el.addEventListener('input', render));
 render();
+setupCta($('cta-link'), LINKS.planilha, 'Quero a planilha completa →');
 // esconde a barra fixa quando o card de resultado já está na tela
 if ('IntersectionObserver' in window){
   new IntersectionObserver(es => es.forEach(e => $('sticky').classList.toggle('off', e.isIntersecting)), {threshold: .25})

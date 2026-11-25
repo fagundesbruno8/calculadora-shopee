@@ -1,5 +1,18 @@
 // Regras de taxa da Shopee e cálculos compartilhados pelas calculadoras Precifica.
 // Fontes e data de referência: ver rodapé das páginas. Atualize TIERS quando a Shopee mudar.
+// Links de checkout da Hotmart. Vazio = o botão mostra "Em breve". Cole o link e publique.
+const LINKS = {
+  planilha: '',    // Planilha Precifica Shopee + Mercado Livre
+  planilha3d: '',  // Planilha Precifica 3D
+};
+
+// Troca o "Em breve" pelo botão de compra quando houver link
+function setupCta(el, url, texto){
+  if (!el || !url) return;
+  const a = document.createElement('a');
+  a.className = 'btn'; a.href = url; a.rel = 'noopener'; a.textContent = texto;
+  el.replaceWith(a);
+}
 // CALC-START
 const TIERS = [
   {lo: 0,   com: 0.50, fix: 0},

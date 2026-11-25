@@ -166,7 +166,7 @@ select:focus{outline:none;border-color:var(--accent)}
       <li>Copiloto de IA: tire dúvidas no ChatGPT ou no Claude grátis</li>
       <li>Atualizada quando a Shopee mudar as regras</li>
     </ul>
-    <span class="btn" style="opacity:.85;cursor:default">Em breve</span>
+    <span class="btn" id="cta-link" style="opacity:.85;cursor:default">Em breve</span>
   </aside>
 
   <section class="faq">
@@ -285,6 +285,7 @@ document.querySelectorAll('.seg button').forEach(btn => btn.addEventListener('cl
 }));
 document.querySelectorAll('input').forEach(el => el.addEventListener('input', render));
 render();
+setupCta($('cta-link'), LINKS.planilha3d || LINKS.planilha, LINKS.planilha3d ? 'Quero a planilha 3D →' : 'Quero a planilha completa →');
 if ('IntersectionObserver' in window){
   new IntersectionObserver(es => es.forEach(e => $('sticky').classList.toggle('off', e.isIntersecting)), {threshold: .25})
     .observe($('hero'));
