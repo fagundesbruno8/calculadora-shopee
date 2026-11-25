@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Custo de Impressão 3D + Taxas da Shopee 2026 | Precifica</title>
+<meta name="description" content="Calcule grátis o custo de uma peça impressa em 3D (filamento, energia, desgaste e falhas) e quanto sobra vendendo na Shopee com as taxas de 2026. Descubra o preço certo e o lucro por hora de impressora.">
+<meta property="og:title" content="Calculadora de Custo de Impressão 3D + Shopee 2026">
+<meta property="og:description" content="Filamento, energia, desgaste e taxas da Shopee numa conta só. Descubra o preço certo da sua peça.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.sec{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin:22px 0 4px}
+.sec:first-of-type{margin-top:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row2 label{margin-top:14px}
+select{width:100%;font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px}
+select:focus{outline:none;border-color:var(--accent)}
+.prod{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:16px}
+.prod .lines{margin-top:6px}
+.prod .lines li{font-size:14px;padding:6px 0}
+.prod-t{font-weight:700;font-size:14px}
+.unit{position:relative}
+.unit span{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600;pointer-events:none}
+.unit input{padding-right:52px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">Atualizada em 25/11/2026 · taxas da Shopee 2026</span>
+    <h1>Quanto custa e quanto sobra da sua peça 3D na Shopee?</h1>
+    <p class="lead">Filamento, energia, desgaste da impressora, falhas e taxas da Shopee numa conta só. Grátis e sem cadastro.</p>
+    <p class="lead" style="margin-top:8px;font-size:14px">Não imprime em 3D? <a href="../" style="color:var(--accent);font-weight:700">Use a calculadora geral da Shopee →</a></p>
+  </header>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="t-dados">
+      <h2 id="t-dados">1. Sua peça</h2>
+
+      <div class="sec">Impressão</div>
+      <label for="imp">Impressora</label>
+      <select id="imp">
+        <option value="80">Bambu Lab A1 mini (~80 W)</option>
+        <option value="95">Bambu Lab A1 (~95 W)</option>
+        <option value="105" selected>Bambu Lab P1S / P1P (~105 W)</option>
+        <option value="105">Bambu Lab X1 Carbon (~105 W)</option>
+        <option value="120">Creality Ender 3 V3 SE (~120 W)</option>
+        <option value="90">Creality K1 / K1C (~90 W)</option>
+        <option value="100">Outra (~100 W)</option>
+      </select>
+      <div class="row2">
+        <div><label for="watts">Consumo médio <span class="hint">Pode ajustar</span></label>
+          <div class="unit"><input id="watts" type="text" inputmode="decimal" value="105"><span>W</span></div></div>
+        <div><label for="kwh">Sua tarifa de luz <span class="hint">R$ por kWh (na conta)</span></label>
+          <div class="money"><span>R$</span><input id="kwh" type="text" inputmode="decimal" value="1,00"></div></div>
+      </div>
+      <div class="row2">
+        <div><label for="h">Tempo de impressão <span class="hint">Horas (do fatiador)</span></label>
+          <div class="unit"><input id="h" type="number" inputmode="numeric" min="0" value="3"><span>h</span></div></div>
+        <div><label for="min">&nbsp;<span class="hint">Minutos</span></label>
+          <div class="unit"><input id="min" type="number" inputmode="numeric" min="0" max="59" value="0"><span>min</span></div></div>
+      </div>
+
+      <div class="sec">Material</div>
+      <div class="row2">
+        <div><label for="g">Peso da peça <span class="hint">Com suportes e purga</span></label>
+          <div class="unit"><input id="g" type="text" inputmode="decimal" value="60"><span>g</span></div></div>
+        <div><label for="kg">Preço do filamento <span class="hint">Quanto pagou no kg</span></label>
+          <div class="money"><span>R$</span><input id="kg" type="text" inputmode="decimal" value="110,00"></div></div>
+      </div>
+
+      <details>
+        <summary>Desgaste, falhas e acabamento (recomendado)</summary>
+        <div class="row2" style="margin-top:4px">
+          <div><label for="maq">Quanto pagou na impressora</label>
+            <div class="money"><span>R$</span><input id="maq" type="text" inputmode="decimal" value="4.000,00"></div></div>
+          <div><label for="vida">Vida útil estimada <span class="hint">Horas de impressão</span></label>
+            <div class="unit"><input id="vida" type="text" inputmode="decimal" value="5000"><span>h</span></div></div>
+        </div>
+        <div class="row2">
+          <div><label for="falha">Impressões que falham <span class="hint">% perdido</span></label>
+            <div class="unit"><input id="falha" type="text" inputmode="decimal" value="5"><span>%</span></div></div>
+          <div><label for="acab">Acabamento / mão de obra <span class="hint">R$ por peça</span></label>
+            <div class="money"><span>R$</span><input id="acab" type="text" inputmode="decimal" value="0,00"></div></div>
+        </div>
+      </details>
+
+      <div class="sec">Venda na Shopee</div>
+      <label for="preco">Preço de venda</label>
+      <div class="money"><span>R$</span><input id="preco" type="text" inputmode="decimal" value="49,90" autocomplete="off"></div>
+      <label for="emb">Embalagem e outros <span class="hint">Caixa, plástico bolha, etiqueta (por unidade)</span></label>
+      <div class="money"><span>R$</span><input id="emb" type="text" inputmode="decimal" value="2,00" autocomplete="off"></div>
+
+      <label>Como você vende?</label>
+      <div class="seg" role="group" aria-label="Tipo de vendedor">
+        <button type="button" data-reg="cpf" aria-pressed="true">CPF</button>
+        <button type="button" data-reg="mei" aria-pressed="false">MEI</button>
+        <button type="button" data-reg="sn" aria-pressed="false">Simples</button>
+      </div>
+      <div class="sub" id="sub-cpf">
+        <label class="check"><input id="cpf450" type="checkbox"><span>Passei de 450 pedidos nos últimos 90 dias na Shopee<span class="hint">Acima disso, o CPF paga R$ 3,00 a mais por item</span></span></label>
+      </div>
+      <div class="sub" id="sub-mei" hidden>
+        <label for="vendas">Quantas vendas você faz por mês? <span class="hint">O DAS do MEI (R$ 82,05/mês) é dividido entre elas</span></label>
+        <input id="vendas" type="number" inputmode="numeric" min="1" value="50">
+      </div>
+      <div class="sub" id="sub-sn" hidden>
+        <label for="aliq">Sua alíquota do Simples (%) <span class="hint">Quem fatura até R$ 180 mil/ano no comércio começa em 4%</span></label>
+        <input id="aliq" type="text" inputmode="decimal" value="4">
+      </div>
+
+      <label for="roas">ROAS dos seus anúncios <span class="hint">Faturamento ÷ gasto em anúncios. Não anuncia? Deixe vazio.</span></label>
+      <input id="roas" type="text" inputmode="decimal" value="" placeholder="ex.: 6" autocomplete="off">
+      <details>
+        <summary>Outros custos (opcional)</summary>
+        <div class="row3" style="margin-top:10px;grid-template-columns:1fr 1fr">
+          <div><label for="dev">Devoluções (%)</label><input id="dev" type="text" inputmode="decimal" value="0"></div>
+          <div><label for="camp">Campanha (%)</label><input id="camp" type="text" inputmode="decimal" value="0"></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card" aria-labelledby="t-res" aria-live="polite">
+      <h2 id="t-res">2. Resultado</h2>
+
+      <div class="prod">
+        <div class="prod-t">🖨️ Custo para produzir: <span id="cprod">R$ 0,00</span></div>
+        <ul class="lines" id="plines"></ul>
+      </div>
+
+      <div class="hero" id="hero">
+        <small id="hero-lbl">Sobra por venda na Shopee</small>
+        <strong id="lucro">R$ 0,00</strong>
+        <span class="m" id="margem">0% do preço</span>
+      </div>
+      <ul class="lines" id="lines"></ul>
+      <div class="pills">
+        <div class="pill"><small>Preço mínimo (lucro zero)</small><b id="pmin">—</b></div>
+        <div class="pill"><small id="palvo-lbl">Preço para sobrar 15%</small><b id="palvo">—</b></div>
+        <div class="pill"><small>Lucro por hora de impressora</small><b id="lh">—</b></div>
+        <div class="pill"><small>Peças por dia (24 h)</small><b id="pd">—</b></div>
+      </div>
+      <div class="ads-box">
+        <div class="ads-t">📣 Anúncios (Shopee Ads)</div>
+        <div class="pills" style="margin-top:8px">
+          <div class="pill"><small>ROAS mínimo para não ter prejuízo</small><b id="rmin">—</b></div>
+          <div class="pill"><small id="ralvo-lbl">ROAS para sobrar 15%</small><b id="ralvo">—</b></div>
+        </div>
+        <p class="ads-msg" id="ads-msg"></p>
+      </div>
+      <div class="target"><span>Meta de margem</span><input id="meta" type="range" min="0" max="60" step="1" value="15"><b id="meta-v">15%</b></div>
+      <div class="tip" id="tip" hidden></div>
+    </section>
+  </div>
+
+  <aside class="cta">
+    <h3>Vende várias peças? Faça a conta do catálogo inteiro.</h3>
+    <p>A planilha <b>Precifica</b> mostra preço mínimo, preço sugerido e o que está dando prejuízo em todos os seus produtos.</p>
+    <ul>
+      <li>Shopee e Mercado Livre lado a lado</li>
+      <li>CPF, MEI e Simples Nacional</li>
+      <li>Copiloto de IA: tire dúvidas no ChatGPT ou no Claude grátis</li>
+      <li>Atualizada quando a Shopee mudar as regras</li>
+    </ul>
+    <span class="btn" style="opacity:.85;cursor:default">Em breve</span>
+  </aside>
+
+  <section class="faq">
+    <h2>Perguntas frequentes</h2>
+    <h3>Como calcular o custo do filamento de uma peça 3D?</h3>
+    <p>Multiplique o peso da peça em gramas (com suportes e purga) pelo preço do kg e divida por 1.000. Exemplo: 60 g de um filamento de R$ 110/kg custam 60 × 110 ÷ 1.000 = R$ 6,60.</p>
+    <h3>Quanto de energia gasta uma impressora 3D?</h3>
+    <p>Imprimindo PLA, as impressoras domésticas mais comuns consomem em média de 80 a 120 W. A conta é: watts ÷ 1.000 × horas × tarifa. Uma impressão de 3 h a 105 W com tarifa de R$ 1,00/kWh gasta cerca de R$ 0,32. Para saber o valor exato da sua, use um medidor de tomada.</p>
+    <h3>Por que incluir desgaste e falhas?</h3>
+    <p>Bico, mesa, correias e a própria impressora se desgastam com as horas de uso, e parte das impressões dá errado. Dividir o valor da impressora pela vida útil em horas e somar um % de perdas evita vender abaixo do custo real.</p>
+    <h3>O que é lucro por hora de impressora?</h3>
+    <p>É quanto sobra de cada venda dividido pelo tempo que a peça ocupa a máquina. Como a impressora é o seu gargalo, peças com mais lucro por hora costumam valer mais a pena, mesmo com lucro menor por unidade.</p>
+    <h3>Quanto a Shopee cobra em 2026?</h3>
+    <p>Abaixo de R$ 8: 50%. De R$ 8 a R$ 79,99: 20% + R$ 4,50. De R$ 80 a R$ 99,99: 14% + R$ 16. De R$ 100 a R$ 199,99: 14% + R$ 20. A partir de R$ 200: 14% + R$ 26. Vendedor CPF acima de 450 pedidos em 90 dias paga R$ 3,00 a mais por item.</p>
+  </section>
+
+  <footer>
+    <p>Consumo das impressoras: Bambu Lab Wiki (A1 mini ~80 W, X1C ~105 W em PLA); demais modelos são estimativas de medições de usuários e sites especializados (fórum Bambu Lab, filamino.com, pea3d.com). Tarifa padrão de R$ 1,00/kWh é uma estimativa: a Aneel projeta R$ 0,85/kWh sem impostos para dez/2026; use o valor da sua conta.</p>
+    <p>Taxas da Shopee consultadas em 23–24/11/2026 (hunterhub.com.br, viniensina.com.br, precisaofinanceira.com.br, lider10.com.br); DAS MEI 2026: Agência Brasil / Fenacon. Confirme sempre no painel do vendedor.</p>
+    <p>Ferramenta independente, sem vínculo com a Shopee nem com fabricantes de impressoras. Não é assessoria contábil. Os números são estimativas.</p>
+  </footer>
+</div>
+
+<div class="sticky" id="sticky"><span style="white-space:nowrap">Sobra: <b id="st-v">R$ 0,00</b></span><a href="#t-res">Ver conta ↓</a></div>
+<script src="../calc.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const brl = v => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+const num = el => { const v = parseFloat(String(el.value).replace(/\./g, '').replace(',', '.')); return isFinite(v) ? v : 0; };
+const pct = el => num(el) / 100;
+let reg = 'cpf';
+
+// Custo de produção de uma peça
+function producao(){
+  const horas = num($('h')) + num($('min')) / 60;
+  const material = num($('g')) * num($('kg')) / 1000;
+  const energia = num($('watts')) / 1000 * horas * num($('kwh'));
+  const vida = num($('vida'));
+  const desgaste = vida > 0 ? num($('maq')) / vida * horas : 0;
+  const falhas = (material + energia + desgaste) * pct($('falha'));
+  const acab = num($('acab'));
+  return {horas, material, energia, desgaste, falhas, acab, total: material + energia + desgaste + falhas + acab};
+}
+
+function state(custo){
+  return {custo, emb: num($('emb')), reg, cpf450: $('cpf450').checked, vendas: num($('vendas')), aliq: pct($('aliq')),
+          ads: num($('roas')) > 0 ? 1 / num($('roas')) : 0, dev: pct($('dev')), camp: pct($('camp'))};
+}
+
+function render(){
+  const pr = producao();
+  $('cprod').textContent = brl(pr.total);
+  const PL = [['Filamento', pr.material], ['Energia', pr.energia], ['Desgaste da impressora', pr.desgaste],
+              ['Perdas com falhas', pr.falhas], ['Acabamento / mão de obra', pr.acab]].filter(([, v]) => v > 0);
+  $('plines').innerHTML = PL.map(([k, v]) => `<li><span>${k}</span><span>${brl(v)}</span></li>`).join('');
+
+  const p = num($('preco')), s = state(pr.total), meta = Number($('meta').value) / 100;
+  $('meta-v').textContent = Math.round(meta * 100) + '%';
+  $('palvo-lbl').textContent = 'Preço para sobrar ' + Math.round(meta * 100) + '%';
+  const b = breakdown(p, s);
+  $('hero').className = 'hero' + (b.lucro < 0 ? ' bad' : (b.margem < meta ? ' warn' : ''));
+  $('hero-lbl').textContent = b.lucro < 0 ? 'Você PERDE em cada venda' : 'Sobra por venda na Shopee';
+  $('lucro').textContent = brl(b.lucro);
+  $('margem').textContent = (b.margem * 100).toLocaleString('pt-BR', {maximumFractionDigits: 1}) + '% do preço';
+
+  const t = b.tier, L = [];
+  L.push(['Preço de venda', p]);
+  L.push([`Comissão Shopee (${Math.round(t.com * 100)}%)`, -b.it.comissao]);
+  if (t.fix) L.push(['Taxa fixa por item', -b.it.fixa]);
+  if (b.it.extra) L.push(['Adicional vendedor CPF', -b.it.extra]);
+  if (b.it.imposto) L.push(['Imposto do Simples', -b.it.imposto]);
+  if (b.it.ads) L.push([`Anúncios (ROAS ${num($('roas')).toLocaleString('pt-BR')})`, -b.it.ads]);
+  if (b.it.dev) L.push(['Devoluções', -b.it.dev]);
+  if (b.it.camp) L.push(['Campanha', -b.it.camp]);
+  L.push(['Custo de produção', -b.it.custo]);
+  if (b.it.emb) L.push(['Embalagem e outros', -b.it.emb]);
+  if (b.it.das) L.push(['DAS do MEI (parte desta venda)', -b.it.das]);
+  $('lines').innerHTML = L.map(([k, v]) => `<li><span>${k}</span><span class="${v < 0 ? 'neg' : ''}">${brl(v)}</span></li>`).join('') +
+    `<li class="tot"><span>Sobra para você</span><span>${brl(b.lucro)}</span></li>`;
+
+  const pmin = priceFor(0, s), palvo = priceFor(meta, s);
+  $('pmin').textContent = pmin ? brl(pmin) : '—';
+  $('palvo').textContent = palvo ? brl(palvo) : '—';
+  $('lh').textContent = pr.horas > 0 ? brl(b.lucro / pr.horas) : '—';
+  $('pd').textContent = pr.horas > 0 ? Math.floor(24 / pr.horas).toLocaleString('pt-BR') : '—';
+
+  const sv = $('st-v');
+  sv.textContent = brl(b.lucro) + ' · ' + (b.margem * 100).toLocaleString('pt-BR', {maximumFractionDigits: 0}) + '%';
+  sv.className = b.lucro < 0 ? 's-bad' : (b.margem < meta ? 's-warn' : 's-good');
+
+  const fmtR = v => v ? v.toLocaleString('pt-BR', {maximumFractionDigits: 1}) : '—';
+  const rmin = roasFor(p, s, 0), ralvo = roasFor(p, s, meta), roas = num($('roas'));
+  $('rmin').textContent = fmtR(rmin);
+  $('ralvo').textContent = fmtR(ralvo);
+  $('ralvo-lbl').textContent = 'ROAS para sobrar ' + Math.round(meta * 100) + '%';
+  const am = $('ads-msg');
+  if (!rmin){ am.className = 'ads-msg bad'; am.textContent = 'Neste preço não sobra nada nem sem anúncio: anunciar só aumenta o prejuízo.'; }
+  else if (!roas){ am.className = 'ads-msg'; am.textContent = `Se for anunciar, cada R$ 1 em anúncio precisa trazer pelo menos ${brl(rmin)} em vendas.`; }
+  else if (roas < rmin){ am.className = 'ads-msg bad'; am.textContent = `Seu ROAS (${fmtR(roas)}) está abaixo do mínimo (${fmtR(rmin)}): o anúncio está dando prejuízo, não lucro.`; }
+  else if (ralvo && roas < ralvo){ am.className = 'ads-msg'; am.textContent = `Seu anúncio se paga, mas para bater sua meta o ROAS precisa chegar a ${fmtR(ralvo)}.`; }
+  else { am.className = 'ads-msg good'; am.textContent = `Seu ROAS (${fmtR(roas)}) está acima do necessário para a sua meta. 👍`; }
+
+  const tip = stepTip(p, s);
+  if (tip){
+    $('tip').hidden = false;
+    $('tip').textContent = `⚠️ Atenção ao degrau de faixa: vendendo a ${brl(tip.below)} você ganharia ${brl(tip.ganho)} a MAIS por venda, porque muda a faixa de taxa da Shopee.`;
+  } else $('tip').hidden = true;
+}
+
+$('imp').addEventListener('change', () => { $('watts').value = $('imp').value; render(); });
+document.querySelectorAll('.seg button').forEach(btn => btn.addEventListener('click', () => {
+  reg = btn.dataset.reg;
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  ['cpf', 'mei', 'sn'].forEach(r => { $('sub-' + r).hidden = r !== reg; });
+  render();
+}));
+document.querySelectorAll('input').forEach(el => el.addEventListener('input', render));
+render();
+if ('IntersectionObserver' in window){
+  new IntersectionObserver(es => es.forEach(e => $('sticky').classList.toggle('off', e.isIntersecting)), {threshold: .25})
+    .observe($('hero'));
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Como calcular o custo do filamento de uma peça 3D?","acceptedAnswer":{"@type":"Answer","text":"Multiplique o peso da peça em gramas (com suportes e purga) pelo preço do kg e divida por 1.000. Exemplo: 60 g de um filamento de R$ 110/kg custam R$ 6,60."}},
+{"@type":"Question","name":"Quanto de energia gasta uma impressora 3D?","acceptedAnswer":{"@type":"Answer","text":"Imprimindo PLA, as impressoras domésticas mais comuns consomem em média de 80 a 120 W. A conta é watts ÷ 1.000 × horas × tarifa."}},
+{"@type":"Question","name":"O que é lucro por hora de impressora?","acceptedAnswer":{"@type":"Answer","text":"É quanto sobra de cada venda dividido pelo tempo que a peça ocupa a máquina. Como a impressora é o gargalo, peças com mais lucro por hora costumam valer mais a pena."}}
+]}
+</script>
+</body>
+</html>

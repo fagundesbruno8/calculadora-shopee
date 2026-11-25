@@ -11,109 +11,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f7f7f5; --card:#ffffff; --ink:#16181d; --muted:#5f6672; --line:#e4e4e0;
-  --accent:#e8552d; --accent-ink:#ffffff; --accent-soft:#fdeee8;
-  --good:#167a45; --good-soft:#e3f4ea; --warn:#9a5b00; --warn-soft:#fdf1dc; --bad:#b42318; --bad-soft:#fde5e3;
-  --navy:#1f3a5f; --radius:14px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#111317; --card:#1a1d23; --ink:#eceef2; --muted:#a2a9b5; --line:#2c3039;
-    --accent:#ff7a52; --accent-ink:#1a0d08; --accent-soft:#3a2118;
-    --good:#5fd08f; --good-soft:#163024; --warn:#f2b555; --warn-soft:#332611; --bad:#ff8a80; --bad-soft:#3a1a18;
-    --navy:#9fbbe0;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#111317; --card:#1a1d23; --ink:#eceef2; --muted:#a2a9b5; --line:#2c3039;
-  --accent:#ff7a52; --accent-ink:#1a0d08; --accent-soft:#3a2118;
-  --good:#5fd08f; --good-soft:#163024; --warn:#f2b555; --warn-soft:#332611; --bad:#ff8a80; --bad-soft:#3a1a18;
-  --navy:#9fbbe0;
-}
-*{box-sizing:border-box}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.5}
-.wrap{max-width:980px;margin:0 auto;padding:20px 16px 48px}
-header{padding:8px 0 18px}
-.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.02em;padding:4px 10px;border-radius:999px}
-h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:12px 0 8px;letter-spacing:-.02em}
-.lead{color:var(--muted);margin:0;max-width:640px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
-@media(min-width:860px){.grid{grid-template-columns:1fr 1fr;align-items:start}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-.card h2{font-size:17px;margin:0 0 14px}
-label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
-label:first-of-type{margin-top:0}
-.hint{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
-.money{position:relative}
-.money span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600;pointer-events:none}
-input[type=text],input[type=number]{width:100%;font:inherit;font-size:18px;font-weight:600;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px}
-.money input{padding-left:42px}
-input:focus{outline:none;border-color:var(--accent)}
-.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:4px}
-.seg button{font:inherit;font-size:14px;font-weight:600;border:0;border-radius:9px;padding:10px 4px;background:transparent;color:var(--muted);cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
-.sub{margin-top:12px;padding:12px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
-.sub label{margin-top:0}
-.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:14px;cursor:pointer}
-.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent)}
-details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
-summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--navy)}
-.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.row3 label{font-size:12.5px}
-.row3 input{font-size:16px}
-.hero{border-radius:12px;padding:18px;text-align:center;background:var(--good-soft);color:var(--good)}
-.hero.warn{background:var(--warn-soft);color:var(--warn)}
-.hero.bad{background:var(--bad-soft);color:var(--bad)}
-.hero small{display:block;font-weight:600;font-size:13px;opacity:.9}
-.hero strong{display:block;font-size:clamp(34px,8vw,46px);line-height:1.1;letter-spacing:-.02em;margin:4px 0}
-.hero .m{font-weight:700}
-.lines{list-style:none;margin:16px 0 0;padding:0}
-.lines li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px}
-.lines li span:last-child{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
-.lines li.tot{font-weight:800;border-bottom:0;font-size:16px}
-.lines .neg{color:var(--bad)}
-.pills{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.pill{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.pill small{display:block;color:var(--muted);font-size:12px;font-weight:600}
-.pill b{font-size:19px;font-variant-numeric:tabular-nums}
-.tip{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--warn-soft);color:var(--warn);font-size:14px;font-weight:600}
-.tip[hidden]{display:none}
-.target{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14px;color:var(--muted)}
-.target input{flex:1;accent-color:var(--accent)}
-.cta{margin-top:16px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px}
-:root[data-theme="dark"] .cta{background:#22324a}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{background:#22324a}}
-.cta h3{margin:0 0 6px;font-size:18px}
-.cta p{margin:0 0 12px;opacity:.9;font-size:14.5px}
-.cta ul{margin:0 0 14px;padding-left:18px;font-size:14px;opacity:.95}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:10px}
-.faq{margin-top:28px}
-.faq h2{font-size:22px;margin:0 0 12px}
-.faq h3{font-size:16px;margin:18px 0 6px}
-.faq p{margin:0;color:var(--muted);font-size:15px}
-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
-th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}
-th{color:var(--muted);font-weight:600}
-footer{margin-top:28px;color:var(--muted);font-size:12.5px}
-.sticky{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08);font-weight:700;z-index:10;transition:transform .2s}
-.sticky.off{transform:translateY(110%)}
-.sticky b{font-size:20px}
-.sticky .s-good{color:var(--good)} .sticky .s-warn{color:var(--warn)} .sticky .s-bad{color:var(--bad)}
-.sticky a{font-size:14px;color:var(--accent);text-decoration:none;white-space:nowrap}
-@media(min-width:860px){.sticky{display:none}}
-@media(max-width:859px){.wrap{padding-bottom:90px}}
-footer a{color:var(--muted)}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
   <header>
     <span class="badge">Atualizada em 24/11/2026 · taxa fixa de R$ 4,50</span>
     <h1>Quanto sobra da sua venda na Shopee?</h1>
-    <p class="lead">Calculadora grátis com as regras de 2026: comissão por faixa de preço, taxa fixa, adicional do vendedor CPF e DAS do MEI. Sem cadastro.</p>
+    <p class="lead">Calculadora grátis com as regras de 2026: comissão por faixa de preço, taxa fixa, adicional do vendedor CPF, DAS do MEI e ROAS mínimo dos anúncios. Sem cadastro.</p>
+    <p class="lead" style="margin-top:8px;font-size:14px">🖨️ Vende peças de impressão 3D? <a href="3d/" style="color:var(--accent);font-weight:700">Use a calculadora com custo de filamento e energia →</a></p>
   </header>
 
   <div class="grid">
@@ -144,10 +50,12 @@ footer a{color:var(--muted)}
         <input id="aliq" type="text" inputmode="decimal" value="4">
       </div>
 
+      <label for="roas">ROAS dos seus anúncios <span class="hint">Faturamento ÷ gasto em anúncios. Gastou R$ 10 e vendeu R$ 50 = ROAS 5. Não anuncia? Deixe vazio.</span></label>
+      <input id="roas" type="text" inputmode="decimal" value="" placeholder="ex.: 6" autocomplete="off">
+
       <details>
-        <summary>Custos extras (opcional)</summary>
-        <div class="row3" style="margin-top:10px">
-          <div><label for="ads">Anúncios (%)</label><input id="ads" type="text" inputmode="decimal" value="0"></div>
+        <summary>Outros custos (opcional)</summary>
+        <div class="row3" style="margin-top:10px;grid-template-columns:1fr 1fr">
           <div><label for="dev">Devoluções (%)</label><input id="dev" type="text" inputmode="decimal" value="0"></div>
           <div><label for="camp">Campanha (%)</label><input id="camp" type="text" inputmode="decimal" value="0"></div>
         </div>
@@ -165,6 +73,14 @@ footer a{color:var(--muted)}
       <div class="pills">
         <div class="pill"><small>Preço mínimo (lucro zero)</small><b id="pmin">—</b></div>
         <div class="pill"><small id="palvo-lbl">Preço para sobrar 15%</small><b id="palvo">—</b></div>
+      </div>
+      <div class="ads-box">
+        <div class="ads-t">📣 Anúncios (Shopee Ads)</div>
+        <div class="pills" style="margin-top:8px">
+          <div class="pill"><small>ROAS mínimo para não ter prejuízo</small><b id="rmin">—</b></div>
+          <div class="pill"><small id="ralvo-lbl">ROAS para sobrar 15%</small><b id="ralvo">—</b></div>
+        </div>
+        <p class="ads-msg" id="ads-msg"></p>
       </div>
       <div class="target"><span>Meta de margem</span><input id="meta" type="range" min="0" max="40" step="1" value="15"><b id="meta-v">15%</b></div>
       <div class="tip" id="tip" hidden></div>
@@ -202,6 +118,8 @@ footer a{color:var(--muted)}
     <p>Até 450 pedidos em 90 dias, o CPF paga as mesmas taxas do CNPJ. Acima disso, a Shopee cobra R$ 3,00 a mais por item vendido.</p>
     <h3>Como o MEI entra na conta?</h3>
     <p>O MEI não paga imposto em % de cada venda: paga o DAS, um valor fixo por mês (R$ 82,05 em 2026 para comércio). A calculadora divide o DAS pelas suas vendas do mês para mostrar quanto pesa em cada uma.</p>
+    <h3>Qual o ROAS mínimo para o anúncio da Shopee dar lucro?</h3>
+    <p>ROAS é o faturamento dividido pelo gasto em anúncios. O ROAS mínimo é o preço de venda dividido pelo que sobra da venda antes de pagar o anúncio. Exemplo: se um produto de R$ 40 deixa R$ 10 antes do anúncio, o ROAS mínimo é 4. Abaixo disso, o anúncio dá prejuízo.</p>
     <h3>Por que vender um pouco mais caro pode dar menos lucro?</h3>
     <p>Porque ao passar de R$ 79,99 para R$ 80 o item muda de faixa e a taxa fixa sobe de R$ 4,50 para R$ 16. A calculadora avisa quando isso acontece com o seu preço.</p>
   </section>
@@ -213,61 +131,8 @@ footer a{color:var(--muted)}
 </div>
 
 <div class="sticky" id="sticky"><span style="white-space:nowrap">Sobra: <b id="st-v">R$ 0,00</b></span><a href="#t-res">Ver conta ↓</a></div>
+<script src="calc.js"></script>
 <script>
-// CALC-START
-const TIERS = [
-  {lo: 0,   com: 0.50, fix: 0},
-  {lo: 8,   com: 0.20, fix: 4.5},
-  {lo: 80,  com: 0.14, fix: 16},
-  {lo: 100, com: 0.14, fix: 20},
-  {lo: 200, com: 0.14, fix: 26},
-];
-const DAS_MEI = 82.05, CPF_EXTRA = 3;
-
-function tierIdx(p){ let i = 0; TIERS.forEach((t, k) => { if (p >= t.lo) i = k; }); return i; }
-
-// s = {custo, emb, reg, cpf450, vendas, aliq, ads, dev, camp}
-function fixedPerSale(s){
-  const das = s.reg === 'mei' ? DAS_MEI / Math.max(1, s.vendas || 1) : 0;
-  const extra = (s.reg === 'cpf' && s.cpf450) ? CPF_EXTRA : 0;
-  return {das, extra};
-}
-function pctTax(s){ return s.reg === 'sn' ? (s.aliq || 0) : 0; }
-
-function breakdown(p, s){
-  const t = TIERS[tierIdx(p)], {das, extra} = fixedPerSale(s), imp = pctTax(s);
-  const it = {
-    comissao: p * t.com, fixa: t.fix, extra, imposto: p * imp,
-    ads: p * s.ads, dev: p * s.dev, camp: p * s.camp, custo: s.custo, emb: s.emb, das,
-  };
-  const lucro = p - Object.values(it).reduce((a, b) => a + b, 0);
-  return {tier: t, it, lucro, margem: p > 0 ? lucro / p : 0};
-}
-
-function priceFor(m, s){
-  const {das, extra} = fixedPerSale(s);
-  const varPct = pctTax(s) + s.ads + s.dev + s.camp;
-  let best = null;
-  TIERS.forEach((t, i) => {
-    const den = 1 - t.com - varPct - m;
-    if (den <= 0) return;
-    const hi = i < TIERS.length - 1 ? TIERS[i + 1].lo : Infinity;
-    const cand = Math.max((s.custo + s.emb + das + extra + t.fix) / den, t.lo);
-    if (cand < hi && (best === null || cand < best)) best = cand;
-  });
-  return best;
-}
-
-// Se baixar o preço para logo abaixo da faixa atual der mais lucro, devolve a dica
-function stepTip(p, s){
-  const i = tierIdx(p);
-  if (i < 2) return null;
-  const below = Math.round((TIERS[i].lo - 0.01) * 100) / 100;
-  const now = breakdown(p, s).lucro, alt = breakdown(below, s).lucro;
-  return alt > now ? {below, ganho: alt - now} : null;
-}
-// CALC-END
-
 const $ = id => document.getElementById(id);
 const brl = v => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
 const num = el => { const v = parseFloat(String(el.value).replace(/\./g, '').replace(',', '.')); return isFinite(v) ? v : 0; };
@@ -276,7 +141,7 @@ let reg = 'cpf';
 
 function state(){
   return {custo: num($('custo')), emb: num($('emb')), reg, cpf450: $('cpf450').checked,
-          vendas: num($('vendas')), aliq: pct($('aliq')), ads: pct($('ads')), dev: pct($('dev')), camp: pct($('camp'))};
+          vendas: num($('vendas')), aliq: pct($('aliq')), ads: num($('roas')) > 0 ? 1 / num($('roas')) : 0, dev: pct($('dev')), camp: pct($('camp'))};
 }
 
 function render(){
@@ -296,7 +161,7 @@ function render(){
   if (t.fix) L.push(['Taxa fixa por item', -b.it.fixa, true]);
   if (b.it.extra) L.push(['Adicional vendedor CPF', -b.it.extra, true]);
   if (b.it.imposto) L.push(['Imposto do Simples', -b.it.imposto, true]);
-  if (b.it.ads) L.push(['Anúncios', -b.it.ads, true]);
+  if (b.it.ads) L.push([`Anúncios (ROAS ${num($('roas')).toLocaleString('pt-BR')})`, -b.it.ads, true]);
   if (b.it.dev) L.push(['Devoluções', -b.it.dev, true]);
   if (b.it.camp) L.push(['Campanha', -b.it.camp, true]);
   L.push(['Custo do produto', -b.it.custo, true]);
@@ -313,6 +178,17 @@ function render(){
   const sv = $('st-v');
   sv.textContent = brl(b.lucro) + ' · ' + (b.margem * 100).toLocaleString('pt-BR', {maximumFractionDigits: 0}) + '%';
   sv.className = b.lucro < 0 ? 's-bad' : (b.margem < meta ? 's-warn' : 's-good');
+  const fmtR = v => v ? v.toLocaleString('pt-BR', {maximumFractionDigits: 1}) : '—';
+  const rmin = roasFor(p, s, 0), ralvo = roasFor(p, s, meta), roas = num($('roas'));
+  $('rmin').textContent = fmtR(rmin);
+  $('ralvo').textContent = fmtR(ralvo);
+  $('ralvo-lbl').textContent = 'ROAS para sobrar ' + Math.round(meta * 100) + '%';
+  const am = $('ads-msg');
+  if (!rmin){ am.className = 'ads-msg bad'; am.textContent = 'Neste preço não sobra nada nem sem anúncio: anunciar só aumenta o prejuízo.'; }
+  else if (!roas){ am.className = 'ads-msg'; am.textContent = `Se for anunciar, cada R$ 1 em anúncio precisa trazer pelo menos ${brl(rmin)} em vendas.`; }
+  else if (roas < rmin){ am.className = 'ads-msg bad'; am.textContent = `Seu ROAS (${fmtR(roas)}) está abaixo do mínimo (${fmtR(rmin)}): o anúncio está dando prejuízo, não lucro.`; }
+  else if (ralvo && roas < ralvo){ am.className = 'ads-msg'; am.textContent = `Seu anúncio se paga, mas para bater sua meta o ROAS precisa chegar a ${fmtR(ralvo)}.`; }
+  else { am.className = 'ads-msg good'; am.textContent = `Seu ROAS (${fmtR(roas)}) está acima do necessário para a sua meta. 👍`; }
   const tip = stepTip(p, s);
   if (tip){
     $('tip').hidden = false;
